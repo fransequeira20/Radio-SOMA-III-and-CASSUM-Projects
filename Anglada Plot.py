@@ -33,16 +33,16 @@ df_CORNISH.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)_C','Dec_
 df_CORNISH_HII = pd.read_csv(data_CORNISH_HII , usecols=[0,3,4])
 df_CORNISH_HII.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)','Dec_deg':'Dec(J2000)'}, inplace = True)
 
-path_CORNISH_HII_html = "C:/Users/tiqui/OneDrive/CASSUM 2022/Data/CORNISH_All_HII.html"
+path_CORNISH_HII_html = ".../CORNISH_All_HII.html"
 data_CORNISH_HII_html = pd.read_html(path_CORNISH_HII_html, header=0)
 df_CORNISH_HII_html = data_CORNISH_HII_html[0]
 
-path_CORNISH_III = "C:/Users/tiqui/OneDrive/CASSUM 2022/Data/CORNISH_All_UCHII.html"
+path_CORNISH_III = ".../CORNISH_All_UCHII.html"
 data_CORNISH_III = pd.read_html(path_CORNISH_III, header=0)
 df_CORNISH_III = data_CORNISH_III[0]
 
 ### CSV for the SOMA Survey
-data_SOMA = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Data/SOMA_final_table - MAiN_TABLE.csv'
+data_SOMA = '.../SOMA_final_table - MAiN_TABLE.csv'
 df_SOMA = pd.read_csv(data_SOMA, usecols=[0,1,2])
 df_SOMA = df_SOMA.dropna()
 df_SOMA.rename(columns = {'DEC(J2000)':'Dec(J2000)'}, inplace = True)
@@ -112,22 +112,22 @@ df_CORNISH_HII_html = df_CORNISH_HII_html.reset_index(drop=True)
 ###
 
 # Paths for the three different average methods
-path_all = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/CORNISH Data/SedFitter Results/UCHII'
+path_all = '...'
 table_name = path_all+'/table_aver_4p_bad_sources.txt'
 table_UCHII_verf = ascii.read(table_name)
 
-path_all = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/CORNISH Data/SedFitter Results/UCHII'
+path_all = '...'
 table_name = path_all+'/table_aver_4p.txt'
 table_UCHII = ascii.read(table_name)
 
-path_SOMA = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/CORNISH Data/average_goodmodels_SOMA_sources_linear_flu+bkg.txt'
+path_SOMA = '.../average_goodmodels_SOMA_sources_linear_flu+bkg.txt'
 SOMA_table = ascii.read(path_SOMA)
 
-path_all = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/CORNISH Data/SedFitter Results/HII'
+path_all = '...'
 table_name = path_all+'/table_aver_4p.txt'
 table_HII = ascii.read(table_name)
 
-path_Anglada = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/SEDs/Anglada Plot/'
+path_Anglada = '.../Anglada Plot/'
 
 # Add results of the fitting (Lbol) to the dataframe
 Source_Name = table_UCHII_verf['Source_Name']
@@ -143,7 +143,7 @@ table_HII.remove_row(19)
 # Uploading data from models and SOMA data points
 data_dict_Lit = {}
 Lit_sources = []
-infile='/Users/tiqui/Desktop/Running_scripts_Spyder/Tables_Radio_SOMA_3/Anglada_Plot/Reference_table.txt'
+infile='.../Anglada_Plot/Reference_table.txt'
 
 for line in open(infile, 'r'):
     l1 = line.split()
@@ -175,13 +175,6 @@ for source in Lit_sources:
     if  data_dict_Lit[source]['Refs'] == 'Anglada_95'   and data_dict_Lit[source]['Lum_bol'] != 'na':
         Anglada_Lbol.append(float(data_dict_Lit[source]['Lum_bol']))
         Anglada_Radio.append(float(data_dict_Lit[source]['Radio_lum'])/scale)
-        
-#    if  data_dict_Lit[source]['Refs'] == 'Kurtz_94':
-#        if source in Unresolved_Kurtz_94:
-#            continue
-#        else:
-#            Kur_Lbol.append(float(data_dict_Lit[source]['Lum_bol']))
-#            Kur_Radio.append(float(data_dict_Lit[source]['Rad_Lum_calc'])/scale_k)
 
 ### Values for the Data points from the SOMA Radio I, II and III
 # SOMA 1
@@ -304,5 +297,4 @@ rad_lum_an_v2= 8*10**(-3)*plot_lum_v2**(0.6)
 pl.loglog(plot_lum_v2, rad_lum_an_v2,'--k')
 
 pl.show()
-path_all = 'C:/Users/tiqui/OneDrive/CASSUM 2022/Notebooks/SEDs using sedcreator/CORNISH Data/SedFitter Results/AAS Results'
-#fig.savefig(path_all+'/Anglada Plot.png')#,dpi=300,bbox_inches='tight')
+#fig.savefig('Anglada Plot.png')#,dpi=300,bbox_inches='tight')
