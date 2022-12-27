@@ -33,16 +33,16 @@ df_CORNISH.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)_C','Dec_
 df_CORNISH_HII = pd.read_csv(data_CORNISH_HII , usecols=[0,3,4])
 df_CORNISH_HII.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)','Dec_deg':'Dec(J2000)'}, inplace = True)
 
-path_CORNISH_HII_html = ".../CORNISH_All_HII.html"
+path_CORNISH_HII_html = "Anglada Plot/Data/CORNISH_All_HII.html"
 data_CORNISH_HII_html = pd.read_html(path_CORNISH_HII_html, header=0)
 df_CORNISH_HII_html = data_CORNISH_HII_html[0]
 
-path_CORNISH_III = ".../CORNISH_All_UCHII.html"
+path_CORNISH_III = "Anglada Plot/Data/CORNISH_All_UCHII.html"
 data_CORNISH_III = pd.read_html(path_CORNISH_III, header=0)
 df_CORNISH_III = data_CORNISH_III[0]
 
 ### CSV for the SOMA Survey
-data_SOMA = '.../SOMA_final_table - MAiN_TABLE.csv'
+data_SOMA = 'Anglada Plot/Data/SOMA_final_table - MAiN_TABLE.csv'
 df_SOMA = pd.read_csv(data_SOMA, usecols=[0,1,2])
 df_SOMA = df_SOMA.dropna()
 df_SOMA.rename(columns = {'DEC(J2000)':'Dec(J2000)'}, inplace = True)
@@ -112,22 +112,18 @@ df_CORNISH_HII_html = df_CORNISH_HII_html.reset_index(drop=True)
 ###
 
 # Paths for the three different average methods
-path_all = '...'
+path_all = 'Anglada Plot/Data'
 table_name = path_all+'/table_aver_4p_bad_sources.txt'
 table_UCHII_verf = ascii.read(table_name)
 
-path_all = '...'
-table_name = path_all+'/table_aver_4p.txt'
-table_UCHII = ascii.read(table_name)
-
-path_SOMA = '.../average_goodmodels_SOMA_sources_linear_flu+bkg.txt'
+path_SOMA = 'Anglada Plot/Data/average_goodmodels_SOMA_sources_linear_flu+bkg.txt'
 SOMA_table = ascii.read(path_SOMA)
 
-path_all = '...'
+path_all = 'Anglada Plot/Data'
 table_name = path_all+'/table_aver_4p.txt'
 table_HII = ascii.read(table_name)
 
-path_Anglada = '.../Anglada Plot/'
+path_Anglada = 'Anglada Plot/Data/'
 
 # Add results of the fitting (Lbol) to the dataframe
 Source_Name = table_UCHII_verf['Source_Name']
@@ -143,7 +139,7 @@ table_HII.remove_row(19)
 # Uploading data from models and SOMA data points
 data_dict_Lit = {}
 Lit_sources = []
-infile='.../Anglada_Plot/Reference_table.txt'
+infile='Anglada Plot/Data/Reference_table.txt'
 
 for line in open(infile, 'r'):
     l1 = line.split()
