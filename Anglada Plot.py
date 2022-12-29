@@ -33,7 +33,7 @@ df_CORNISH_HII.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)','De
 
 path_CORNISH_HII_txt = "Data/Tables/CORNISH_All_HII.txt"
 data_CORNISH_HII_txt = pd.read_csv(path_CORNISH_HII_txt, header=0, sep='')
-df_CORNISH_HII_html = data_CORNISH_HII_html[0]
+df_CORNISH_HII_txt = data_CORNISH_HII_txt[0]
 
 path_CORNISH_III = "Data/Tables/CORNISH_All_UCHII.txt"
 data_CORNISH_III = pd.read_csv(path_CORNISH_III, header=0, sep='')
@@ -101,9 +101,9 @@ df.drop(list_bad_sources_index, inplace=True)
 df = df.reset_index(drop=True)
 
 # Drop HII regions that don't have distance data, and bad sources (G045.4790+00.1294)
-df_CORNISH_HII_html.dropna(subset=['Dist_h(kpc)'], inplace=True)
-df_CORNISH_HII_html.drop([29], inplace=True)
-df_CORNISH_HII_html = df_CORNISH_HII_html.reset_index(drop=True)
+df_CORNISH_HII_txt.dropna(subset=['Dist_h(kpc)'], inplace=True)
+df_CORNISH_HII_txt.drop([29], inplace=True)
+df_CORNISH_HII_txt = df_CORNISH_HII_txt.reset_index(drop=True)
 
 ###
 # Anglada plot
@@ -237,7 +237,7 @@ pl.annotate(r'Lyman Continuum from YSO', xy=(1.5e2,2e-4), annotation_clip=False,
 pl.scatter(x=df_UCHII['lbol'], y=df_UCHII['Flux (mJy)']*df_UCHII['Dist_h(kpc)']**2, marker = 'o', label='CORNISH HII', 
            color='blue', zorder=10, s=40)
 
-pl.scatter(x=table_HII['lbol'], y=df_CORNISH_HII_html['Flux (mJy)']*df_CORNISH_HII_html['Dist_h(kpc)']**2, marker = 'o', 
+pl.scatter(x=table_HII['lbol'], y=df_CORNISH_HII_txt['Flux (mJy)']*df_CORNISH_HII_txt['Dist_h(kpc)']**2, marker = 'o', 
            color='blue', zorder=10, s=40)
 
 # To plot the SOMA data points with the errorbar (See Radio SOMA I, II and III)
