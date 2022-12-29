@@ -31,12 +31,12 @@ df_CORNISH.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)_C','Dec_
 df_CORNISH_HII = pd.read_csv(data_CORNISH_HII , usecols=[0,3,4])
 df_CORNISH_HII.rename(columns = {'#Name':'Source_Name', 'RA_deg':'RA(J2000)','Dec_deg':'Dec(J2000)'}, inplace = True)
 
-path_CORNISH_HII_html = "Data/Tables/CORNISH_All_HII.html"
-data_CORNISH_HII_html = pd.read_html(path_CORNISH_HII_html, header=0)
+path_CORNISH_HII_txt = "Data/Tables/CORNISH_All_HII.txt"
+data_CORNISH_HII_txt = pd.read_csv(path_CORNISH_HII_txt, header=0, sep='')
 df_CORNISH_HII_html = data_CORNISH_HII_html[0]
 
-path_CORNISH_III = "Data/Tables/CORNISH_All_UCHII.html"
-data_CORNISH_III = pd.read_html(path_CORNISH_III, header=0)
+path_CORNISH_III = "Data/Tables/CORNISH_All_UCHII.txt"
+data_CORNISH_III = pd.read_csv(path_CORNISH_III, header=0, sep='')
 df_CORNISH_III = data_CORNISH_III[0]
 
 ### CSV for the SOMA Survey
