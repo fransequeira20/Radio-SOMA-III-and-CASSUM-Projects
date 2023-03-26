@@ -26,14 +26,13 @@ mpl.rcParams['xtick.direction'] = 'in'
 mpl.rcParams['ytick.direction'] = 'in'
 
 #Paths for the sources data (table_coord) and dictionary with the contour levels
-table_coord = '/Users/tiqui/Desktop/Running_scripts_Spyder/Tables_Radio_SOMA_3/SOMA_coordinates.txt'
+table_coord = 'Data/Tables/SOMA_coordinates.txt'
 t_coord = np.genfromtxt(table_coord, names=True, dtype=None, encoding=None)
-contour_levels_dic ='/Users/tiqui/Desktop/Running_scripts_Spyder/contour_levels_dic.p'
+contour_levels_dic ='Data/contour_levels_dic.p'
 contour_levels_dic = pickle.load(open(contour_levels_dic, 'rb'))
 
 #Paths for the FITS images
-IR_image_path = '/Users/tiqui/Desktop/Running_scripts_Spyder/Images_FITS/Images_IR_SOFIA_37um_SOMAIII_fits'
-VLA_image_path = '/Users/tiqui/Desktop/Running_scripts_Spyder/Images_FITS/Images_Radio_SOMAIII_fits'
+FITS_path = 'Data/Images_FITS'
 
 #Color for the SOMA aperture
 myblue ='#0000DD'
@@ -42,7 +41,7 @@ for i, source in enumerate(t_coord['source']):
     if source == 'IRAS_22198':
     
         #Ploting the IR image
-        IR_fits_file = IR_image_path+'/'+source+'_SOFIA_37.1um_cal_ast.fits'
+        IR_fits_file = FITS_path+'/'+source+'_SOFIA_37.1um_cal_ast.fits'
         
         hdu_IR = fits.open(IR_fits_file)[0]
         wcs_IR = WCS(hdu_IR.header)
@@ -75,8 +74,8 @@ for i, source in enumerate(t_coord['source']):
             cbar.set_ticklabels([1.0, 2.0, 4.0, 8.0, 12.0, 16.0])
         
         #Ploting the VLA data and contour maps
-        VLA_C_fits_file = VLA_image_path+'/'+source+'_C.image.pbcor.fits'
-        VLA_K_fits_file = VLA_image_path+'/'+source+'_K.image.pbcor.fits'
+        VLA_C_fits_file = FITS_path+'/'+source+'_C.image.pbcor.fits'
+        VLA_K_fits_file = FITS_path+'/'+source+'_K.image.pbcor.fits'
     
         hdu_VLA_C = fits.open(VLA_C_fits_file)[0]
         data_VLA_C = hdu_VLA_C.data.squeeze()
@@ -301,7 +300,7 @@ for i, source in enumerate(t_coord['source']):
         lat.set_ticklabel(exclude_overlapping=True)
         lat.display_minor_ticks(True)
         lat.tick_params(direction='in', length=6, color='white')
-        path = 'C:/Users/tiqui/Desktop/Running_scripts_Spyder/Paper_and_presentation/Contour Images/'
+        path = 'Data/'
         #plt.savefig(path+source+'_VLA_contours.png', bbox_inches='tight')
         #plt.savefig(path+source+'_VLA_contours.pdf')
         plt.show()
