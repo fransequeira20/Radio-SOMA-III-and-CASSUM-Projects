@@ -300,9 +300,8 @@ for i, source in enumerate(t_coord['source']):
         lat.set_ticklabel(exclude_overlapping=True)
         lat.display_minor_ticks(True)
         lat.tick_params(direction='in', length=6, color='white')
-        path = 'Data/'
-        #plt.savefig(path+source+'_VLA_contours.png', bbox_inches='tight')
-        #plt.savefig(path+source+'_VLA_contours.pdf')
+        #plt.savefig(source+'_VLA_contours.png', bbox_inches='tight')
+        #plt.savefig(source+'_VLA_contours.pdf')
         plt.show()
         plt.close()
     
