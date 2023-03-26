@@ -6,5 +6,5 @@ This repositary contains python scripts and jupyter notebooks with the results u
 
 ## CASSUM Project: "The Final Stages of Massive Star Formation - Infrared Characterization of Ultra-Compact HII Regions"
 
-![](Figures/IRAS_22198_VLA_contours.png)
+![Contour plot for source IRAS 22198](Figures/IRAS_22198_VLA_contours.png)
 
