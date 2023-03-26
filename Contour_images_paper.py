@@ -21,7 +21,6 @@ from mpl_toolkits.axes_grid1.anchored_artists import AnchoredSizeBar
 from Plot_label_mark import plot_label_mark
 import aplpy
 
-
 # To settle the direction of the ticks (direction=in) in the inset region
 mpl.rcParams['xtick.direction'] = 'in'
 mpl.rcParams['ytick.direction'] = 'in'
