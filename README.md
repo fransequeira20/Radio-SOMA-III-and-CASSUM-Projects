@@ -7,3 +7,5 @@ This repositary contains python scripts and jupyter notebooks with the results u
 ## CASSUM Project: "The Final Stages of Massive Star Formation - Infrared Characterization of Ultra-Compact HII Regions"
 
 <img src="Figures/Anglada_Plot.png" width="380" height="380">
+
+<img src="Figures/Lbol_Menv_Tracks.png" width="380" height="380">
