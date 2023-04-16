@@ -14,7 +14,7 @@ In this project we analyzed over 350 regions from the CORNISH UCHII catalogue at
 
 <img src="Figures/Anglada_Plot.png" width="380" height="380">
 
-This plot uses the radio luminosity at 5 GHz and the bolometric luminosity to determine the nature of the source given the position of the data points in the plot.
+This plot uses radio luminosity at 5 GHz and the bolometric luminosity to determine the nature of the source given the position of the data points in the plot.
 
 <img src="Figures/Lbol_Menv_Tracks.png" width="380" height="380">
 
